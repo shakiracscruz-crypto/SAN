@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de San Valentín 💙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        
+        .carta {
+            background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+            width: 100%;
+            max-width: 600px;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 3px solid #1976d2;
+            position: relative;
+        }
+        
+        .corazon {
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: latido 1.5s infinite;
+        }
+        
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        h1 {
+            color: #0d47a1;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(13, 71, 161, 0.2);
+        }
+        
+        .contenido {
+            color: #1a237e;
+            line-height: 1.8;
+            font-size: 16px;
+            text-align: justify;
+        }
+        
+        .contenido p {
+            margin-bottom: 20px;
+        }
+        
+        .firma {
+            margin-top: 40px;
+            text-align: right;
+            color: #0d47a1;
+            font-style: italic;
+            font-weight: bold;
+        }
+        
+        .decoracion {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            font-size: 30px;
+        }
+        
+        .flor {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta">
+        <div class="corazon">💙</div>
+        
+        <h1>¡Feliz Día del Amor! 💝</h1>
+        
+        <div class="decoracion">
+            <span class="flor">🌹</span>
+            <span class="flor">✨</span>
+            <span class="flor">🌹</span>
+        </div>
+        
+        <div class="contenido">
+            <p>Mi amor,</p>
+            
+            <p>
+                En este día especial, quiero expresarte todo lo que sientes en mi corazón. 
+                Eres la razón de mis sonrisas, el brillo en mis ojos y la paz en mi alma.
+            </p>
+            
+            <p>
+                Contigo he aprendido que el amor no es solo un sentimiento, es una decisión 
+                que hago cada día. Es elegirte, cuidarte y apoyarte en cada paso de esta hermosa vida.
+            </p>
+            
+            <p>
+                Gracias por ser mi compañero, mi amigo, mi confidente. Gracias por creer en mí 
+                cuando dudaba, por sonreír cuando estoy triste y por estar siempre a mi lado.
+            </p>
+            
+            <p>
+                En esta noche de San Valentín, quiero recordarte que eres lo más valioso que tengo. 
+                Mi promesa es amarte cada día, con toda la fuerza de mi corazón, hoy y siempre.
+            </p>
+            
+            <p>
+                Te amo profundamente.
+            </p>
+            
+            <div class="firma">
+                Con todo mi amor,<br>
+                Tu amor eternamente 💙
+            </div>
+        </div>
+        
+        <div class="decoracion">
+            <span class="flor">⭐</span>
+            <span class="flor">💙</span>
+            <span class="flor">⭐</span>
+        </div>
+    </div>
+</body>
+</html>
