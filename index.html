@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            text-align: center;
+            padding: 50px;
+        }
+        .heart {
+            color: red;
+            font-size: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff5c5c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #ff3d3d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Valentine's Day!</h1>
+    <div class="heart">💖</div>
+    <p>Share the love with your friends!</p>
+    <button onclick="copyText()">Copy Message</button>
+    <button onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+
+    <script>
+        function copyText() {
+            const message = "Wishing you a Happy Valentine's Day! 💖";
+            navigator.clipboard.writeText(message).then(() => {
+                alert('Message copied to clipboard!');
+            });
+        }
+        function shareOnWhatsApp() {
+            const message = encodeURIComponent('Wishing you a Happy Valentine\'s Day! 💖');
+            const url = `https://api.whatsapp.com/send?text=${message}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
