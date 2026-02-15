@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Sergio 💙</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  font-family:'Georgia',serif;
+  color:white;
+}
+
+/* FONDO GALAXIA */
+.galaxia{
+  position:absolute;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  z-index:0;
+}
+
+.particula{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#4da6ff;
+  border-radius:50%;
+  animation:flotar linear infinite;
+}
+
+@keyframes flotar{
+  from{transform:translateY(100vh); opacity:0;}
+  20%{opacity:1;}
+  to{transform:translateY(-10vh); opacity:0;}
+}
+
+/* PANTALLA INICIO */
+.inicio{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:5;
+  cursor:pointer;
+  transition:1.5s;
+}
+
+.inicio h1{
+  font-size:32px;
+  color:#4da6ff;
+  text-shadow:0 0 20px #4da6ff,0 0 40px #4da6ff;
+  animation:brillo 2s infinite alternate;
+}
+
+@keyframes brillo{
+  from{text-shadow:0 0 10px #4da6ff;}
+  to{text-shadow:0 0 30px #4da6ff;}
+}
+
+/* SOBRE */
+.sobre{
+  position:relative;
+  width:360px;
+  height:240px;
+  background:#081c3d;
+  border-radius:12px;
+  box-shadow:0 0 60px rgba(0,100,255,0.7);
+  cursor:pointer;
+  perspective:1000px;
+  z-index:2;
+  transition:1s;
+}
+
+.tapa{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#06142b;
+  clip-path:polygon(0 0,100% 0,50% 50%);
+  transform-origin:top;
+  transition:1.2s;
+  z-index:3;
+}
+
+/* CARTA */
+.carta{
+  position:absolute;
+  width:320px;
+  height:500px;
+  background:#0f2c5c;
+  border-radius:15px;
+  padding:30px;
+  box-sizing:border-box;
+  top:20px;
+  left:20px;
+  transform:translateY(200px);
+  transition:1.8s;
+  opacity:0;
+  box-shadow:0 30px 80px rgba(0,0,0,0.9);
+  overflow:auto;
+}
+
+.carta h2{
+  text-align:center;
+  color:#6bb3ff;
+  text-shadow:0 0 15px #6bb3ff;
+}
+
+.abrir{
+  transform:scale(1.05);
+}
+
+.abrir .tapa{
+  transform:rotateX(180deg);
+}
+
+.abrir .carta{
+  transform:translateY(-260px);
+  opacity:1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="galaxia"></div>
+
+<div class="inicio" onclick="empezar()">
+  <h1>💙 SERGIO 💙</h1>
+  <p>Toca para comenzar</p>
+</div>
+
+<div class="sobre" onclick="abrir()">
+  <div class="tapa"></div>
+  <div class="carta">
+    <h2>💘 FELIZ SAN VALENTÍN, MI AMOR 💘</h2>
+    <p id="texto"></p>
+  </div>
+</div>
+
+<audio id="musica" loop>
+  <source src="volvi_a_nacer.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* MENSAJE */
+const mensaje = `Gracias por enseñarme que el amor se construye día a día. 
+Eres mi presente y mi futuro, y te amo con todo mi ser ❤️
+
+Gracias por cada momento compartido, por hacerme tan feliz y por tu forma tan bonita de quererme 💞
+
+Haberte encontrado cuando no buscaba nada fue lo más lindo que me pudo pasar. 
+Aunque estés lejos de mis abrazos, mi corazón siempre encuentra tu nombre y me recuerda lo importante que eres para mí 🥰✨
+
+Te quiero de una manera tan sincera que no necesito verte ni tocarte para sentir que mi amor crece; basta con cerrar los ojos y saber que existes 💖
+
+Y si hoy me preguntan qué celebro, celebro haberte encontrado, amarte así y sentir que te amo más de lo que mis palabras pueden expresar 💌`;
+
+let i=0;
+function escribir(){
+  if(i < mensaje.length){
+    document.getElementById("texto").innerHTML += mensaje.charAt(i);
+    i++;
+    setTimeout(escribir,25);
+  }
+}
+
+function empezar(){
+  document.querySelector(".inicio").style.opacity="0";
+  setTimeout(()=>{
+    document.querySelector(".inicio").style.display="none";
+  },1500);
+  document.getElementById("musica").play();
+}
+
+function abrir(){
+  document.querySelector(".sobre").classList.toggle("abrir");
+  escribir();
+}
+
+/* GALAXIA */
+function crearParticula(){
+  const p=document.createElement("div");
+  p.classList.add("particula");
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(Math.random()*5+4)+"s";
+  document.querySelector(".galaxia").appendChild(p);
+  setTimeout(()=>{p.remove();},9000);
+}
+setInterval(crearParticula,150);
+</script>
+
+</body>
+</html>
